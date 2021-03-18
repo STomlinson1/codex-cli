@@ -1,7 +1,21 @@
+import { useState } from 'react';
+
 const App: React.FC = () => {
+	const [ input, setInput ] = useState('');
+	// code is the transpiled output from esbuild.
+	const [ code, setCode ] = useState('');
+
+	const onClick = () => {
+		console.log(input);
+	};
+
 	return (
 		<div>
-			<h1>Codex</h1>
+			<textarea value={input} onChange={(e) => setInput(e.target.value)} />
+			<div>
+				<button onClick={onClick}>Submit</button>
+			</div>
+			<pre>{code}</pre>
 		</div>
 	);
 };
